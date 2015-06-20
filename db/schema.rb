@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619142813) do
+ActiveRecord::Schema.define(version: 20150620122027) do
 
   create_table "challenges", force: :cascade do |t|
     t.integer "user_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150619142813) do
     t.integer "total_days"
     t.boolean "accepted"
     t.text    "challenge_description"
+    t.boolean "completed"
   end
 
   create_table "charities", force: :cascade do |t|

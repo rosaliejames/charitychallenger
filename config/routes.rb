@@ -6,12 +6,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'challenges#index'
+  #root 'users#profile'
 
   get 'challenges' => 'challenges#index'
-  get 'users/:id' => 'users#show' 
+  get 'users/:id' => 'users#show'
   get 'challenges/new' => 'challenges#new' 
   post 'challenges' => 'challenges#create'
   get 'challenges/:id' => 'challenges#show'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
