@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'challenges/:id' => 'challenges#show'
 
 
+  # require 'sidetiq/web'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
