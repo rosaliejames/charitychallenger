@@ -1,7 +1,20 @@
 class UsersController < ApplicationController 
 	before_action :authenticate_user!
 	def show 
-		@user = User.find(params[:id])
+		@user = User.find(params[:id]) 
+		@active_challenges = []
+		@pending_challenges = [] 
+		@completed_challenges = []
+		@challenges = Challenge.where(:challenger_id => @user.id) + Challenge.where(:challengee_id => @user.id)
+		@challenges.each do |challenge| 
+			if challenge[:complete]
+				@completed_challenges << challenge 
+			elsif !challenge[:accpted] 
+				@pending_challenges << challenge 
+			else 
+				@active_challenges << challenge
+			end 
+		end 
 	end 
 
 	def new

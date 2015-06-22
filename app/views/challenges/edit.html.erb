@@ -1,0 +1,6 @@
+Accept your Challenge:
+ Pick a Charity:
+ <%= form_for @challenge do |f| %>
+  <%= f.select(:challengee_charity_id, @charities) %> <br />
+  <%= f.submit %>
+  <%end%>
