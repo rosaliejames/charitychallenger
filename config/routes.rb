@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post 'challenges' => 'challenges#create'
   get 'challenges/:id' => 'challenges#show'
 
+  get 'challenges/:id/edit' => 'challenges#edit' 
+  patch '/challenges/:id' => 'challenges#update', as: 'challenge'
+
 
   # require 'sidetiq/web'
 

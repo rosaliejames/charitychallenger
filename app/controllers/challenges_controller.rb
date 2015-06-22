@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
 	end 
 
 	def create 
-		@challenge = Challenge.create(challenge_params.merge(:challenger_id => current_user.id, :accepted => false, :current_day => 1, :start_date => Date.today), :completed => false)
+		@challenge = Challenge.create(challenge_params.merge(:challenger_id => current_user.id, :accepted => false, :current_day => 1, :start_date => Date.today, :completed => false))
 		@challenge.update(:end_date => @challenge[:total_days].days.from_now)
 		#@challenge.update(:end_date => @challenge[:total_days].days_from_now)
 		redirect_to '/challenges/'
@@ -21,6 +21,20 @@ class ChallengesController < ApplicationController
 	def index
 		@challenges = Challenge.all	
 	end
+
+	def edit
+		@charities = Charity.all.collect {|p| [ p.name, p.id ] }
+		@challenge = Challenge.find(params[:id])
+	end 
+
+	def update 
+		#binding.pry
+		@challenge = Challenge.find(params[:id])
+		@challenge.update_attributes(params.require(:challenge).permit(:challengee_charity_id))
+		@challenge.update_attributes(:accepted => true)
+		#@challenge.update_attributes(params.require(:challengee_charity_id)) 
+		redirect_to root_path
+	end 
 
 	private
 

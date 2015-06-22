@@ -1,6 +1,6 @@
 class Challenge < ActiveRecord::Base 
-	has_one :challenger, :class_name => "User"
-	has_one :challengee, :class_name => "User"
-	has_one :challenger_charity, :class_name => "Charity"
-	has_one :challengee_charity, :class_name => "Charity"
+	belongs_to :challenger, :class_name => "User"
+	belongs_to :challengee, :class_name => "User"
+	belongs_to :challenger_charity, :class_name => "Charity"
+	belongs_to :challengee_charity, :class_name => "Charity"
 end 
