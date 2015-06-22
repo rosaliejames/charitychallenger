@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   patch '/challenges/:id' => 'challenges#update', as: 'challenge'
 
 
+  # require 'sidetiq/web'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

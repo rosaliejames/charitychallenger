@@ -15,10 +15,13 @@ class ChallengesController < ApplicationController
 
 	def show 
 		@challenge = Challenge.find(params[:id])
+		# @day = UpdateWorker.perform(Challenge.find(params[:id]).current_day)
 	end 
 
 	def index
 		@challenges = Challenge.all	
+		 # @tester = UpdateWorker.perform
+
 	end
 
 	def edit
