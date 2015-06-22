@@ -19,9 +19,14 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 24.hours do
+	set :environment, "development"
+	set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-runner "UpdateWorker.perform"
+
+every 2.minutes do #:day, :at => '12:01am' do
+
+	runner "UpdateWorker.perform", :environment => "development"
+
 
 end
 

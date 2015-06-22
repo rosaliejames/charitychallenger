@@ -1,12 +1,12 @@
-desc "Add 1 to current day and reset the button that checks whether or not the user has completed that day's challenge"
+# desc "Add 1 to current day and reset the button that checks whether or not the user has completed that day's challenge"
 
-task :daily_update => :environment do
+# task :daily_update => :environment do
 
-  puts "Updating ..."
+#   puts "Updating ..."
 
-  UpdateWorker.new.perform
+#   UpdateWorker.new.perform
 
-  # ...
-  puts "done."
+#   # ...
+#   puts "done."
 
-end
+# end
