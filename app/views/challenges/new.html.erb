@@ -1,1 +1,17 @@
-New
+Create a New Challenge
+<%= form_for @challenge do |f| %>
+	Pick a User to Challenge:
+  <%= f.select( :challengee_id, @users) %> <br />
+
+  <%= f.label "Enter a challenge description" %>:
+  <%= f.text_field :challenge_description %><br />
+
+  <%= f.label "Number of days" %>:
+  <%= f.text_field :total_days %><br />
+
+  Pick a Charity:
+  <%= f.select( :challenger_charity_id, @charities) %> <br />
+
+
+  <%= f.submit %>
+ <% end %>

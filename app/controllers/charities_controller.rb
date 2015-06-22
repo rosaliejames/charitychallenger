@@ -1,3 +1,2 @@
 class CharitiesController < ApplicationController 
-
 end 

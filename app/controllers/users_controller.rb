@@ -16,4 +16,5 @@ class UsersController < ApplicationController
 	# 	devise_parameter_sanitizer.sanitize(:sign_up)
 	# end 
 
+
 end 

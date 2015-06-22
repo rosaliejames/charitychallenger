@@ -1,3 +1,5 @@
 Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 <%= image_tag @user.avatar.url(:medium) %>
-<%=@user.username %>
+<%=@user.username %> <br />
+
+<%= link_to "Create New Challenge", challenges_new_path %>

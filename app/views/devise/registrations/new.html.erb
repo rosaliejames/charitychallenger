@@ -18,7 +18,10 @@
     <%= f.text_field :username%>
   </div>
 
-  <%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.label "Profile Picture" %><br />
+    <%= f.file_field :avatar %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

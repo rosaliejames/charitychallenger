@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if user_signed_in? %>
+<p> Signed in as <%= "#{current_user.username}"%> | <%= link_to "Edit My Account", "/users/edit" %>  |  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> </p>
+<% else %>
+<p> Currently not signed in  |  <%= link_to "Sign In", new_user_session_path %>  |  Don't have an Account? <%= link_to "Sign Up", new_user_registration_path %> </p>
+<%end%>
+
+
+<h1>Charity Challenger</h1>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
