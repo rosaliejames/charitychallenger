@@ -1,6 +1,6 @@
 Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 <%=@user.username %> <br />
-<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:medium) %><br />
 
 
 <%= link_to "Create New Challenge", challenges_new_path %><br />
@@ -8,18 +8,29 @@ Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 
 Active Challenges:<br />
 <% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
-<%= challenge %><br />
+<ol>
+<li>
+<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%>
+</li>
+</ol>
 <%end%>
 
 Pending Challenges:<br />
 <% @pending_challenges.each do |challenge| %>
-<%= challenge %><br />
+<ol>
+<li>
+<%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
+Challenge: <%=challenge[:challenge_description]%><br />
 <% if challenge[:challengee_id] == current_user.id %>
 <%= link_to "Accept this Challenge", "/challenges/#{challenge.id}/edit" %><br />
+<% else %>
+Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 <%end%>
+</li>
+</ol>
 <%end%>
 
 Completed Challenges:<br />
 <% @completed_challenges.each do |challenge| %>
-<%= challenge %><br />
+<%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 <%end%>

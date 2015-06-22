@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
 	end 
 
 	def create 
-		@challenge = Challenge.create(challenge_params.merge(:challenger_id => current_user.id, :accepted => false, :current_day => 1, :start_date => Date.today, :completed => false))
+		@challenge = Challenge.create(challenge_params.merge(:challenger_id => current_user.id, :accepted => false, :current_day => 1, :start_date => Date.today, :completed => false, :challengee_task => false, :challenger_task => false, :challenger_funds => 0.00, :challengee_funds => 0.00))
 		@challenge.update(:end_date => @challenge[:total_days].days.from_now)
 		#@challenge.update(:end_date => @challenge[:total_days].days_from_now)
 		redirect_to '/challenges/'
