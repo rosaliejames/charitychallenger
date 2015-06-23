@@ -12,6 +12,13 @@ Create a New Challenge
   Pick a Charity:
   <%= f.select( :challenger_charity_id, @charities) %> <br />
 
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
+            data-description="<%= "Getting closer to your goal!" %>"
+            data-amount="<%= (100).to_i %>"></script>
 
   <%= f.submit %>
- <% end %>
+   <% end %>
+
+  
+  

@@ -14,8 +14,13 @@ Rails.application.routes.draw do
   post 'challenges' => 'challenges#create'
   get 'challenges/:id' => 'challenges#show'
 
+
+
   get 'challenges/:id/edit' => 'challenges#edit' 
   patch '/challenges/:id' => 'challenges#update', as: 'challenge'
+
+  get 'challenges/:id/pay' => 'challenges#pay', as: :pay_challenge 
+  post 'challenges/:id/buy' => 'challenges#buy', as: :buy_challenge
 
 
   # Example of regular route:

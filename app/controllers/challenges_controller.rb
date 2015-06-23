@@ -10,7 +10,7 @@ class ChallengesController < ApplicationController
 		@challenge = Challenge.create(challenge_params.merge(:challenger_id => current_user.id, :accepted => false, :current_day => 1, :start_date => Date.today, :completed => false))
 		@challenge.update(:end_date => @challenge[:total_days].days.from_now)
 		#@challenge.update(:end_date => @challenge[:total_days].days_from_now)
-		redirect_to '/challenges/'
+		redirect_to pay_challenge_path(@challenge.id)
 	end 
 
 	def show 
@@ -41,4 +41,26 @@ class ChallengesController < ApplicationController
 		params.require(:challenge).permit(:challengee_id, :challenge_description, :total_days, :challenger_charity_id)
 	end 
 
-end 
+	def buy
+	@challenge = Challenge.find(params[:id])
+    @amount = (@challenge.total_days * 100) # placeholder
+
+    customer = Stripe::Customer.create(
+      :email => 'example@stripe.com',
+      :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => "#{@challenge.challenge_description}",
+      :currency    => 'usd'
+    )
+    redirect_to root_path, notice: "Success! You are going to#{@challenge.challenge_description} :)"
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to root_path
+	end
+
+end
+
