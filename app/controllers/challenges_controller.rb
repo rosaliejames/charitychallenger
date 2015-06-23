@@ -20,7 +20,7 @@ class ChallengesController < ApplicationController
 
 	def index
 		@challenges = Challenge.all	
-		 # @tester = UpdateWorker.perform
+		 
 
 	end
 
