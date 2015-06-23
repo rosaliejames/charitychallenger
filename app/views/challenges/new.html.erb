@@ -7,15 +7,10 @@ Create a New Challenge
   <%= f.text_field :challenge_description %><br />
 
   <%= f.label "Number of days" %>:
-  <%= f.text_field :total_days %><br />
+  <%= f.text_field :total_days, id: "num-days-input" %><br />
 
   Pick a Charity:
   <%= f.select( :challenger_charity_id, @charities) %> <br />
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
-            data-description="<%= "Getting closer to your goal!" %>"
-            data-amount="<%= (100).to_i %>"></script>
 
   <%= f.submit %>
    <% end %>

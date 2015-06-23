@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   get 'challenges/:id/edit' => 'challenges#edit' 
   patch '/challenges/:id' => 'challenges#update', as: 'challenge'
 
-  get 'challenges/:id/pay' => 'challenges#pay', as: :pay_challenge 
-  post 'challenges/:id/buy' => 'challenges#buy', as: :buy_challenge
+  get 'challenges/:id/confirm' => 'challenges#confirm', as: :confirm_challenge
+  post "/challenges/:id/confirm" => 'challenges#buy', as: :buy_challenge
+  #post 'challenges/:id/buy' => 'challenges#buy', as: :buy_challenge
 
 
   # require 'sidetiq/web'
