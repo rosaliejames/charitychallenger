@@ -32,7 +32,6 @@
 
 	Challenge.all.each do |challenge|
 
-
 	  if ( !(challenge[:completed]) && (challenge[:accepted]))
 	    challenge.update_attributes(:current_day => (challenge[:current_day] + 1))
       #TODO: make it so that if its longer than totday, challenge is over 
