@@ -7,11 +7,13 @@ Create a New Challenge
   <%= f.text_field :challenge_description %><br />
 
   <%= f.label "Number of days" %>:
-  <%= f.text_field :total_days %><br />
+  <%= f.text_field :total_days, id: "num-days-input" %><br />
 
   Pick a Charity:
   <%= f.select( :challenger_charity_id, @charities) %> <br />
 
-
   <%= f.submit %>
- <% end %>
+   <% end %>
+
+  
+  

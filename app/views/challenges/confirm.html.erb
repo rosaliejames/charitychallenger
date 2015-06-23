@@ -1,0 +1,19 @@
+Confirm
+
+<p><%= @challenge[:challenge_description] %></p>
+<p>
+  
+  <%= form_tag confirm_challenge_path(@challenge) do %>
+    <article>
+      <label class="amount">
+        <span>Amount: $<%= number_with_precision @challenge.total_days, precision: 2 %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
+            data-description="<%= @challenge[:challenge_description]%>"
+            data-amount="<%= (@challenge.total_days * 100).floor %>"></script>
+  <% end %>
+</p>
+
