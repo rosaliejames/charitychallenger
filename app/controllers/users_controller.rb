@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		@challenges.each do |challenge| 
 			if challenge[:complete]
 				@completed_challenges << challenge 
-			elsif !challenge[:accpted] 
+			elsif !challenge[:accepted] 
 				@pending_challenges << challenge 
 			else 
 				@active_challenges << challenge

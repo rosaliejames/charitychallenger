@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620141811) do
+ActiveRecord::Schema.define(version: 20150622164956) do
 
   create_table "challenges", force: :cascade do |t|
     t.float   "challenger_funds"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20150620141811) do
     t.integer "challengee_id"
     t.integer "challenger_charity_id"
     t.integer "challengee_charity_id"
+    t.boolean "challenger_task"
+    t.boolean "challengee_task"
   end
 
   create_table "charities", force: :cascade do |t|
