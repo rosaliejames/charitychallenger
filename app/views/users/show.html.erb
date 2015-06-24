@@ -1,3 +1,4 @@
+<div class="container">
 Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 <%=@user.username %> <br />
 <%= image_tag @user.avatar.url(:medium) %><br />
@@ -10,7 +11,14 @@ Active Challenges:<br />
 <% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 <ol>
 <li>
-<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%>
+<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
+	<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% else %> 
+	You completed your challenge today - good work! 
+	<% end %>
 </li>
 </ol>
 <%end%>
@@ -34,3 +42,4 @@ Completed Challenges:<br />
 <% @completed_challenges.each do |challenge| %>
 <%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 <%end%>
+</div>

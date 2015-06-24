@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" class="navbar-no-margin-bottom">
+<nav class="navbar navbar-default navbar-fixed-top" class="navbar-no-margin-bottom">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Charity Challenger</a>
+      <a class="navbar-brand" href="<%=root_path%>">Charity Challenger</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +21,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><a>Signed in as <%=current_user[:username]%></a></li>
-        <li><a href="/users/sign_out">Sign Out</a></li>
+        <li><a href="<%=destroy_user_session_path(current_user)%>">Sign Out</a></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->

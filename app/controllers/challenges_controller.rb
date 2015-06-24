@@ -21,7 +21,6 @@ class ChallengesController < ApplicationController
 	def index
 		@challenges = Challenge.all	
 		 # @tester = UpdateWorker.perform
-
 	end
 
 	def edit
@@ -64,6 +63,17 @@ class ChallengesController < ApplicationController
     flash[:error] = e.message
     redirect_to root_path
 	end
+
+	def complete 
+		@challenge = Challenge.find(params[:id])
+		if current_user.id == @challenge[:challenger_id]
+			@challenge.update_attributes(:challenger_task => true)
+			redirect_to "/users/#{current_user.id}", notice: "You completed your challenge today - Nice Work!"
+		else 
+			@challenge.update_attributes(:challengee_task => true)
+			redirect_to "/users/#{current_user.id}", notice: "You completed your challenge today - Nice Work!"
+		end 
+	end 
 
 
 	private

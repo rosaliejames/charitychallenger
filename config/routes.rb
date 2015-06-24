@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   post 'challenges' => 'challenges#create'
   get 'challenges/:id' => 'challenges#show'
 
+  #patch "users/:id/checkin" => "users#checkin", :as => "checkin"
 
+  put 'challenges/:id/complete' => 'challenges#complete', as: 'complete'
 
-  get 'challenges/:id/edit' => 'challenges#edit' 
-  patch '/challenges/:id' => 'challenges#update', as: 'challenge'
+  get 'challenges/:id/edit' => 'challenges#edit', as: 'challenge_edit' 
+  put '/challenges/:id' => 'challenges#update', as: 'challenge'
 
   get 'challenges/:id/confirm' => 'challenges#confirm', as: :confirm_challenge
   post "/challenges/:id/confirm" => 'challenges#buy', as: :buy_challenge
