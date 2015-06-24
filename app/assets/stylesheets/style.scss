@@ -4,6 +4,34 @@
 
 @import url('http://fast.fonts.com/cssapi/95b765fd-fae4-4f1b-8155-d8244914a5c6.css');
 
+
+.avatar {
+  border-radius: 20%;
+   font-family: 'Old Standard TT', cursive;
+}
+.user-welcome {
+  text-align: center;
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 60px;
+  font-weight: 30;
+  padding: 50px 0px 0px 0px;
+  color: #01017A
+}
+.username {
+  text-align: center;
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 30px;
+  font-weight: 30;
+  color: #6D003B
+}
+.challenge-link {
+  text-align: center;
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 30px;
+  font-weight: 30;
+  color: #5BBAFF; 
+  padding: 20px;
+}
 aside,
 footer,
 header,
@@ -61,16 +89,18 @@ h2 {
 h3 {
   color: #dd3b2a;
   font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.25em;
   margin: 0.5em 0;
+  color: #6D003B
 }
 h4 {
 	font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
   font-size: 91px;
   font-weight: 500;
   text-align: center;
+  color: #01017A
 }
 .form-challenge {
 	text-align: center;
