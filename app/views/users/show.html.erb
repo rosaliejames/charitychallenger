@@ -35,6 +35,24 @@
 			</ol>
 		</div>
 
+<h3>Active Challenges:</h3> 
+<% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
+
+<ol>
+<% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
+<li>
+<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
+	<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% else %> 
+	You completed your challenge today - good work! 
+	<% end %>
+</li>
+<%end%>
+</ol>
+
 		<div class="col-sm-4" class="col-challenges">
 			<h3>Pending Challenges:</h3> 
 			<% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>

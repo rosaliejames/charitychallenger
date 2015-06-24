@@ -5,6 +5,7 @@
 @import url('http://fast.fonts.com/cssapi/95b765fd-fae4-4f1b-8155-d8244914a5c6.css');
 
 
+
 .avatar {
   border-radius: 20%;
    font-family: 'Old Standard TT', cursive;
@@ -82,13 +83,12 @@ h1 {
   color: #01017A
 }
 h2 {
-  color: #dd3b2a;
+  color: #5BBAFF;
   font-size: 22px;
   font-style: italic;
   font-weight: 400;
 }
 h3 {
-  color: #dd3b2a;
   font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
   font-size: 20px;
   font-weight: 500;
@@ -109,6 +109,14 @@ h5 {
   text-align: center;
   color: white;
 }
+h6 {
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25em;
+  margin: 0.5em 0;
+  color: #5BBAFF
+}
 .form-challenge {
 	text-align: center;
 	padding: 20 px;
@@ -117,7 +125,7 @@ h3 + p {
   margin-top: 0;
 }
 a {
-  color: #2babe1;
+  color: #6D003B;
   text-decoration: none;
 }
 abbr[title] {
@@ -132,7 +140,7 @@ abbr[title] {
 .supporting div abbr:hover:after,
 .requirements abbr:hover:after {
   content: ' (' attr(title) ')';
-  text-shadow: 0 0 1em #dd3b2a;
+  text-shadow: 0 0 1em #6D003B;
 }
 .spin from {
   -webkit-transform: rotate(0deg);
@@ -342,7 +350,6 @@ header {
   z-index: 1;
 }
 header h1 {
-  border-top: 4px solid white;
   color: #01017A;
   display: inline-block;
   min-height: 70px;
@@ -351,7 +358,6 @@ header h1 {
   z-index: 2;
 }
 header h1:after {
-  background-color: #dd3b2a;
   content: '';
   height: 2px;
   left: 0;
@@ -365,6 +371,7 @@ header h2 {
   max-width: 695px;
   margin: -10px auto 0;
   width: 100%;
+  color: #5BBAFF;
 }
 .summary {
   position: relative;
@@ -375,7 +382,7 @@ header h2 {
 }
 .summary p {
   clear: right;
-  color: #dd3b2a;
+  color: #6D003B;
   float: right;
   font-style: italic;
   margin: 0;
@@ -395,23 +402,27 @@ header h2 {
   width: 50%;
   z-index: 4;
 }
-.intro {
-  background: #edf6ff;
-  background: -moz-linear-gradient(top, #ffffff 0%, #edf6ff 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #edf6ff));
-  background: -webkit-linear-gradient(top, #ffffff 0%, #edf6ff 100%);
-  background: -o-linear-gradient(top, #ffffff 0%, #edf6ff 100%);
-  background: -ms-linear-gradient(top, #ffffff 0%, #edf6ff 100%);
-  background: linear-gradient(to bottom, #ffffff 0%, #edf6ff 100%);
+.intro { 
+  background: -moz-linear-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -webkit-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -webkit-linear-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -o-linear-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -ms-linear-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: linear-gradient(top, rgba(0,150,255,.9), rgba(0,150,255,.25));
   float: left;
   height: 590px;
   width: 100%;
   color: #01017A
 }
 .supporting {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-top: 5px solid #dd3b2a;
-  border-bottom: 5px solid #2babe1;
+  background: -moz-linear-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -webkit-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -webkit-linear-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -o-linear-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: -ms-linear-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  background: linear-gradient(bottom, rgba(0,150,255,.9), rgba(0,150,255,.25));
+  border-top: 5px solid #6D003B;
+  border-bottom: 5px solid #6D003B;
   float: left;
   position: relative;
   width: 100%;
@@ -431,8 +442,9 @@ header h2 {
 }
 
 .participation {
-  background: #edf6ff;
-  border-top: 5px solid #cce4fb;
+  
+  background: #FF9D3;
+  border-top: 5px solid #6D003B;
   padding-top: 15px;
   width: 100%;
 }
@@ -462,8 +474,8 @@ header h2 {
   width: 100%;
 }
 .benefits {
-  background-color: #edf6ff;
-  border-bottom: 5px solid #cce4fb;
+  background-color: #FF9D3;
+  border-bottom: 5px solid #6D003B;
   margin-bottom: 25px;
   padding: 150px 0 50px 0;
   width: 100%;
@@ -479,7 +491,7 @@ header h2 {
   width: 50%;
 }
 .benefits:before {
-  border: 1px solid #dd3b2a;
+  border: 1px solid #6D003B;
   content: '';
   display: block;
   height: 0px;
@@ -538,8 +550,8 @@ header h2 {
   width: 55%;
 }
 aside {
-  background: #2babe1;
-  border-top: 5px solid #edf6ff;
+  background: #6D003B;
+  border-top: 5px solid #FF9D3;
   clear: both;
   display: block;
   float: left;
@@ -572,8 +584,8 @@ aside:after {
   z-index: 1;
 }
 aside .wrapper {
-  background: #2babe1;
-  border-top: 5px solid #edf6ff;
+  background: #6D003B;
+  border-top: 5px solid #FF9D3;
   margin: -5px auto 0;
   max-width: 1040px;
   padding: 40px 0 30px 0;
@@ -597,7 +609,7 @@ aside .wrapper h3 {
   margin-top: 0;
 }
 aside .wrapper a {
-  color: #edf6ff;
+  color: #FF9D3;
 }
 aside .wrapper a.designer-name {
   color: #00374f;
@@ -613,7 +625,7 @@ aside .wrapper ul li:last-child {
   margin-bottom: 0;
 }
 aside .wrapper .design-selection {
-  border-right: 2px solid #edf6ff;
+  border-right: 2px solid #FF9D3;
   float: left;
   margin-right: 40px;
   width: 50%;
@@ -632,7 +644,7 @@ aside .wrapper .zen-resources {
   width: 100%;
 }
 .supporting footer a {
-  color: #edf6ff;
+  color: #FF9D3;
   margin-right: 25px;
   vertical-align: -1em;
 }
@@ -751,7 +763,7 @@ aside .wrapper .zen-resources {
   }
   .intro .preamble {
     background: rgba(255, 255, 255, 0.9);
-    border-top: 5px solid #dd3b2a;
+    border-top: 5px solid #6D003B;
     bottom: 0;
     margin: 0;
     max-width: none;
