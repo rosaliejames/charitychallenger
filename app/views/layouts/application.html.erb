@@ -10,8 +10,11 @@
 <body>
 <div class="alert"><%= notice %></div>
 <div class="notice"><%= alert %></div>
-<%= render partial: "nav" %>
-
+<% if user_signed_in? %>
+<%= render partial: "nav_signed_in" %>
+<% else %>
+<%= render partial: "nav_not_signed_in" %>
+<% end %>
 
 
 <%= yield %>

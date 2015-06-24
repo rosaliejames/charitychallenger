@@ -33,7 +33,7 @@ class ChallengesController < ApplicationController
 		@challenge.update_attributes(params.require(:challenge).permit(:challengee_charity_id))
 		@challenge.update_attributes(:accepted => true)
 		#@challenge.update_attributes(params.require(:challengee_charity_id)) 
-		redirect_to root_path
+		redirect_to confirm_challenge_path(@challenge), notice: "Challenge Accepted!"
 	end 
 
 	def confirm
@@ -57,10 +57,10 @@ class ChallengesController < ApplicationController
       :currency    => 'usd'
     )
 
-    redirect_to root_path, notice: "Success! You are going to #{@challenge[:challenge_description]} for #{@challenge[:total_days]}"
+    redirect_to "/users/#{current_user.id}", notice: "Success! You are going to #{@challenge[:challenge_description]} for #{@challenge[:total_days]}"
   	rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to root_path
+    redirect_to "/users/#{current_user.id}"
 	end
 
 	def complete 

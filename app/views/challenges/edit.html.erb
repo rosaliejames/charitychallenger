@@ -1,6 +1,23 @@
-Accept your Challenge:
- Pick a Charity:
+<div class="container">
+<h3>Accept your Challenge:</h3>
+ Almost there! Your Challenge is: <br />
+<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+Challenge: <%=@challenge[:challenge_description]%><br />
+My Charity: <% if current_user.id == @challenge[:challenger_id] %>
+ <%= Charity.find(@challenge[:challenger_charity_id]).name %><br />
+  <% if @challenge[:challenger_charity_id].nil? %>
+  <%= User.find(@challenge[:challengee_id])[:username]%> has not yet picked a challenge
+  <%else%> 
+  <%= User.find(@challenge[:challengee_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %> 
+  <%end%>
+ <% else %> 
+ <%= Charity.find(@challenge[:challengee_charity_id]).name %> <br />
+ <%= User.find(@challenge[:challenger_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %>
+ <%end%></p>
+ To accept this challenge, please pick a Charity!
+
  <%= form_for @challenge do |f| %>
   <%= f.select(:challengee_charity_id, @charities) %> <br />
   <%= f.submit %>
   <%end%>
+ </div>

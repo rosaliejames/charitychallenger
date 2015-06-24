@@ -1,6 +1,20 @@
-Confirm
-
-<p><%= @challenge[:challenge_description] %></p>
+<div class="container">
+<h3>Confirm Your Challenge</h3>
+Your Challenge:
+<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+Challenge: <%=@challenge[:challenge_description]%><br />
+My Charity: <% if current_user.id == @challenge[:challenger_id] %>
+ <%= Charity.find(@challenge[:challenger_charity_id]).name %><br />
+  <% if @challenge[:challenger_charity_id].nil? %>
+  <%= User.find(@challenge[:challengee_id])[:username]%> has not yet picked a challenge
+  <%else%> 
+  <%= User.find(@challenge[:challengee_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %> 
+  <%end%>
+ <% else %> 
+ <%= Charity.find(@challenge[:challengee_charity_id]).name %> <br />
+ <%= User.find(@challenge[:challenger_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %>
+ <%end%>
+</p>
 <p>
   
   <%= form_tag confirm_challenge_path(@challenge) do %>
@@ -16,4 +30,5 @@ Confirm
             data-amount="<%= (@challenge.total_days * 100).floor %>"></script>
   <% end %>
 </p>
+</div>
 
