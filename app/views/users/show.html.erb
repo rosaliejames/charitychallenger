@@ -1,5 +1,5 @@
 <div class="container">
-Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
+<h3>Welcome <%=@user.first_name %> <%=@user.last_name %>!</h3> <br />
 <%=@user.username %> <br />
 <%= image_tag @user.avatar.url(:medium) %><br />
 
@@ -7,7 +7,9 @@ Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 <%= link_to "Create New Challenge", challenges_new_path %><br />
 
 
-Active Challenges:<br />
+<h4>Active Challenges:</h4> 
+<% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
+
 <% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 <ol>
 <li>
@@ -23,7 +25,8 @@ Active Challenges:<br />
 </ol>
 <%end%>
 
-Pending Challenges:<br />
+<h4>Pending Challenges:</h4> 
+<% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>
 <% @pending_challenges.each do |challenge| %>
 <ol>
 <li>
@@ -38,7 +41,8 @@ Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 </ol>
 <%end%>
 
-Completed Challenges:<br />
+<h4>Completed Challenges:</h4> 
+<% if @completed_challenges.empty? %>You have no completed challenges <br /><%end%>
 <% @completed_challenges.each do |challenge| %>
 <%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 <%end%>
