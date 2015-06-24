@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'challenges/:id' => 'challenges#show'
 
   put 'challenges/:id/complete' => 'challenges#complete', as: 'complete'
+  delete 'challenges/:id/destroy' => 'challenges#destroy', as: 'destroy'
 
   get 'challenges/:id/edit' => 'challenges#edit', as: 'challenge_edit' 
   patch '/challenges/:id' => 'challenges#update', as: 'challenge'
