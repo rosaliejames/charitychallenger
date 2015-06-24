@@ -79,6 +79,7 @@ h1 {
   font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
   font-size: 91px;
   font-weight: 500;
+  color: #01017A
 }
 h2 {
   color: #dd3b2a;
@@ -101,6 +102,12 @@ h4 {
   font-weight: 500;
   text-align: center;
   color: #01017A
+}
+h5 {
+  font-family: 'Adelle W01 Bold', 'Arvo', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  font-size: 50px;
+  text-align: center;
+  color: white;
 }
 .form-challenge {
 	text-align: center;
@@ -336,7 +343,7 @@ header {
 }
 header h1 {
   border-top: 4px solid white;
-  color: #00374f;
+  color: #01017A;
   display: inline-block;
   min-height: 70px;
   margin: 55px auto 0;
@@ -399,6 +406,7 @@ header h2 {
   float: left;
   height: 590px;
   width: 100%;
+  color: #01017A
 }
 .supporting {
   background-color: rgba(255, 255, 255, 0.9);
