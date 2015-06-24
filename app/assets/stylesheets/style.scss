@@ -430,6 +430,7 @@ header h2 {
   position: relative;
   left: 50%;
 }
+
 .participation {
   background: #edf6ff;
   border-top: 5px solid #cce4fb;
@@ -446,7 +447,7 @@ header h2 {
   position: relative;
 }
 .participation:after {
-  background: url(../images/participation.png) 40px center no-repeat;
+  
   background: url("https://static.pexels.com/photos/6872/cold-snow-nature-weather.jpg") 40px center no-repeat;
   
   clear: right;
@@ -489,7 +490,8 @@ header h2 {
   width: 220px;
 }
 .benefits:after {
-  background: url(../images/benefits.png) 150px center no-repeat;
+  
+  background: url("https://static.pexels.com/photos/5122/food-healthy-man-person.jpeg") 150px center no-repeat;
   
   content: '';
   display: block;
@@ -546,7 +548,8 @@ aside {
   width: 100%;
 }
 aside:before {
-  background: url('../images/starburst.png') center top no-repeat;
+  
+  background: url ("https://static.pexels.com/photos/5122/food-healthy-man-person.jpeg") center top no-repeat;
   
   content: '';
   height: 921px;
@@ -557,7 +560,8 @@ aside:before {
   width: 923px;
 }
 aside:after {
-  background: url('../images/robot.png') center top no-repeat;
+  
+  background: url ("https://static.pexels.com/photos/5122/food-healthy-man-person.jpeg") center top no-repeat;
   
   content: '';
   height: 949px;
@@ -661,6 +665,7 @@ aside .wrapper .zen-resources {
   .explanation {
     margin: 0 5% 0 2.5%;
     width: 42.5%;
+    right:auto;
   }
   .participation h3,
   .participation p {
@@ -861,6 +866,7 @@ aside .wrapper .zen-resources {
 
 
 
+
 .navbar-no-margin-bottom {
   margin-bottom: 0;
 }
@@ -909,3 +915,4 @@ aside .wrapper .zen-resources {
 .box3 {
   background: #ffd34e;
 }
+

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  
   #root 'users#profile'
+
 
   #delete '/users/sign_out' => "devise/sessions#destroy", as: 'sign_out'
 
