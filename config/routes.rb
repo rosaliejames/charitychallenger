@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  
   #root 'users#profile'
+
 
   get 'challenges' => 'challenges#index'
   get 'users/:id' => 'users#show'
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
   #post 'challenges/:id/buy' => 'challenges#buy', as: :buy_challenge
 
 
-  # require 'sidetiq/web'
+
 
 
   # Example of regular route:
