@@ -20,8 +20,14 @@
 <h3>Active Challenges:</h3> 
 <% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
 
+<<<<<<< HEAD
 <% @active_challenges.each_with_index do |challenge, index| #to do - accomodate for empty, display You have no challenges %>
+=======
+
+
+>>>>>>> aec2b673d39c807b39692a335da6c4777b634a28
 <ol>
+<% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 <li>
 <%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
 	<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
@@ -32,13 +38,13 @@
 	You completed your challenge today - good work! 
 	<% end %>
 </li>
-</ol>
 <%end%>
+</ol>
 
 <h3>Pending Challenges:</h3> 
 <% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>
-<% @pending_challenges.each do |challenge| %>
 <ol>
+<% @pending_challenges.each do |challenge| %>
 <li>
 <%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 Challenge: <%=challenge[:challenge_description]%><br />
@@ -48,12 +54,16 @@ Challenge: <%=challenge[:challenge_description]%><br />
 Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 <%end%>
 </li>
-</ol>
 <%end%>
+</ol>
 
 <h3>Completed Challenges:</h3> 
 <% if @completed_challenges.empty? %>You have no completed challenges <br /><%end%>
+<ol>
 <% @completed_challenges.each do |challenge| %>
+<li>
 <%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
+</li>
 <%end%>
+</ol>
 </div>
