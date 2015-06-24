@@ -1,4 +1,5 @@
-Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
+<div class="container">
+<h3>Welcome <%=@user.first_name %> <%=@user.last_name %>!</h3> <br />
 <%=@user.username %> <br />
 <%= image_tag @user.avatar.url(:medium) %><br />
 
@@ -6,16 +7,26 @@ Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
 <%= link_to "Create New Challenge", challenges_new_path %><br />
 
 
-Active Challenges:<br />
+<h4>Active Challenges:</h4> 
+<% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
+
 <% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 <ol>
 <li>
-<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%>
+<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
+	<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
+		<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+	<% else %> 
+	You completed your challenge today - good work! 
+	<% end %>
 </li>
 </ol>
 <%end%>
 
-Pending Challenges:<br />
+<h4>Pending Challenges:</h4> 
+<% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>
 <% @pending_challenges.each do |challenge| %>
 <ol>
 <li>
@@ -30,7 +41,9 @@ Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 </ol>
 <%end%>
 
-Completed Challenges:<br />
+<h4>Completed Challenges:</h4> 
+<% if @completed_challenges.empty? %>You have no completed challenges <br /><%end%>
 <% @completed_challenges.each do |challenge| %>
 <%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 <%end%>
+</div>

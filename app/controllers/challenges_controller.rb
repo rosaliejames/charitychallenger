@@ -20,8 +20,6 @@ class ChallengesController < ApplicationController
 
 	def index
 		@challenges = Challenge.all	
-		 
-
 	end
 
 	def edit
@@ -35,7 +33,7 @@ class ChallengesController < ApplicationController
 		@challenge.update_attributes(params.require(:challenge).permit(:challengee_charity_id))
 		@challenge.update_attributes(:accepted => true)
 		#@challenge.update_attributes(params.require(:challengee_charity_id)) 
-		redirect_to root_path
+		redirect_to confirm_challenge_path(@challenge), notice: "Challenge Accepted!"
 	end 
 
 	def confirm
@@ -59,11 +57,22 @@ class ChallengesController < ApplicationController
       :currency    => 'usd'
     )
 
-    redirect_to root_path, notice: "Success! You are going to #{@challenge[:challenge_description]} for #{@challenge[:total_days]}"
+    redirect_to "/users/#{current_user.id}", notice: "Success! You are going to #{@challenge[:challenge_description]} for #{@challenge[:total_days]}"
   	rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to root_path
+    redirect_to "/users/#{current_user.id}"
 	end
+
+	def complete 
+		@challenge = Challenge.find(params[:id])
+		if current_user.id == @challenge[:challenger_id]
+			@challenge.update_attributes(:challenger_task => true)
+			redirect_to "/users/#{current_user.id}", notice: "You completed your challenge today - Nice Work!"
+		else 
+			@challenge.update_attributes(:challengee_task => true)
+			redirect_to "/users/#{current_user.id}", notice: "You completed your challenge today - Nice Work!"
+		end 
+	end 
 
 
 	private

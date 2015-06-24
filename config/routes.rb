@@ -8,23 +8,22 @@ Rails.application.routes.draw do
   root 'welcome#index'
   #root 'users#profile'
 
+  #delete '/users/sign_out' => "devise/sessions#destroy", as: 'sign_out'
+
   get 'challenges' => 'challenges#index'
   get 'users/:id' => 'users#show'
   get 'challenges/new' => 'challenges#new' 
   post 'challenges' => 'challenges#create'
   get 'challenges/:id' => 'challenges#show'
 
+  put 'challenges/:id/complete' => 'challenges#complete', as: 'complete'
 
-
-  get 'challenges/:id/edit' => 'challenges#edit' 
+  get 'challenges/:id/edit' => 'challenges#edit', as: 'challenge_edit' 
   patch '/challenges/:id' => 'challenges#update', as: 'challenge'
 
   get 'challenges/:id/confirm' => 'challenges#confirm', as: :confirm_challenge
   post "/challenges/:id/confirm" => 'challenges#buy', as: :buy_challenge
   #post 'challenges/:id/buy' => 'challenges#buy', as: :buy_challenge
-
-
-  # require 'sidetiq/web'
 
 
   # Example of regular route:
