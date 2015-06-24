@@ -11,7 +11,7 @@
 
  class UpdateWorker
 
- def self.perform #, completed)
+ def self.perform 
 
 	Challenge.all.each do |challenge|
 
