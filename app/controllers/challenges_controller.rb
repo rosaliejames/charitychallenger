@@ -40,6 +40,12 @@ class ChallengesController < ApplicationController
 		@challenge = Challenge.find(params[:id])
 	end
 
+	def destroy
+		@challenge = Challenge.find(params[:id])
+		@challenge.destroy
+		redirect_to "/users/#{current_user.id}", notice: "Challenge Declined" 
+	end 
+
 	
 	def buy
 	@challenge = Challenge.find(params[:id])
