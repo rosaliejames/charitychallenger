@@ -1,17 +1,31 @@
 <div class="container">
-<h3>Welcome <%=@user.first_name %> <%=@user.last_name %>!</h3> <br />
-<%=@user.username %> <br />
-<%= image_tag @user.avatar.url(:medium) %><br />
+<div class="user-welcome"
+<h3>Welcome <%=@user.first_name %> <%=@user.last_name %>! <br />
+</h3> <br />
 
+<%= image_tag @user.avatar.url(:medium), :class => 'avatar'%>
+<br />
+<br />
+</div>
+<div class="username">
+<%=@user.username %>
+<br />
+</div>
 
+<div class="challenge-link">
 <%= link_to "Create New Challenge", challenges_new_path %><br />
+</div>
 
 
-<h4>Active Challenges:</h4> 
+<h3>Active Challenges:</h3> 
 <% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
 
+<<<<<<< HEAD
+<% @active_challenges.each_with_index do |challenge, index| #to do - accomodate for empty, display You have no challenges %>
+=======
 
 
+>>>>>>> aec2b673d39c807b39692a335da6c4777b634a28
 <ol>
 <% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 <li>
@@ -27,7 +41,7 @@
 <%end%>
 </ol>
 
-<h4>Pending Challenges:</h4> 
+<h3>Pending Challenges:</h3> 
 <% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>
 <ol>
 <% @pending_challenges.each do |challenge| %>
@@ -43,7 +57,7 @@ Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 <%end%>
 </ol>
 
-<h4>Completed Challenges:</h4> 
+<h3>Completed Challenges:</h3> 
 <% if @completed_challenges.empty? %>You have no completed challenges <br /><%end%>
 <ol>
 <% @completed_challenges.each do |challenge| %>
