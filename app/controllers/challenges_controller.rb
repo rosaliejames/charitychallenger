@@ -33,7 +33,7 @@ class ChallengesController < ApplicationController
 		@challenge.update_attributes(params.require(:challenge).permit(:challengee_charity_id))
 		@challenge.update_attributes(:accepted => true)
 		#@challenge.update_attributes(params.require(:challengee_charity_id)) 
-		redirect_to root_path
+		redirect_to "/users/#{current_user.id}", notice: "Challenge Accepted!"
 	end 
 
 	def confirm
