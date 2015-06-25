@@ -15,4 +15,26 @@ class User < ActiveRecord::Base
  #    	initiated_challenges + received_challenges
  #  	end
 
+
+	after_create :welcome_email
+	after_create :daily_reminder_email
+
+	 # private
+	
+	  def welcome_email
+	    TheMailers.welcome_email(self).deliver_now
+	  end
+
+	  # def daily_reminder_email
+	  #   TheMailers.daily_reminder_email.deliver_now #took a self. out of this
+	  # end
+
+
+	  # def self.daily_reminder_email
+	  # 	TheMailers.daily_reminder_email(self).deliver_now
+	  # end
+
+
+
+
 end 
