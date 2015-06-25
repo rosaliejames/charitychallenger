@@ -1,14 +1,19 @@
+<div class = "form-challenge">
 <div class="container">
-<h3>Accept your Challenge:</h3>
- Almost there! Your Challenge is: <br />
+<h4>Accept your Challenge:</h4>
 <p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+<br />
 Challenge: <%=@challenge[:challenge_description]%><br />
- <%= User.find(@challenge[:challenger_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %>
+<br />
+ <%= User.find(@challenge[:challenger_id])[:username] %>'s charity: <%= Charity.find(@challenge[:challenger_charity_id]).name %>
+ <br />
 </p>
- To accept this challenge, please pick a Charity!
+ To accept this challenge, please pick another Charity!
 
  <%= form_for @challenge do |f| %>
   <%= f.select(:challengee_charity_id, @charities) %> <br />
+  <br/>
   <%= f.submit %>
   <%end%>
+ </div>
  </div>
