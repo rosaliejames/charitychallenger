@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
 
 	after_create :welcome_email
-	after_create :daily_reminder_email
+	# after_create :daily_reminder_email
 
 	 # private
 	
