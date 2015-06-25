@@ -6,7 +6,7 @@
 
 
 
-<p><%= image_tag User.find(@challenge[:challenger_id]).avatar.url(:medium), :class => 'avatar'%><h8> vs </h8>h8> <%= image_tag User.find(@challenge[:challengee_id]).avatar.url(:medium), :class => 'avatar'%><br />
+<p><%= image_tag User.find(@challenge[:challenger_id]).avatar.url(:medium), :class => 'avatar'%><h8> vs </h8> <%= image_tag User.find(@challenge[:challengee_id]).avatar.url(:medium), :class => 'avatar'%><br />
 <%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
 <br />
 Challenge: <%=@challenge[:challenge_description]%><br />
