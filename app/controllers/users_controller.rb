@@ -25,6 +25,8 @@ class UsersController < ApplicationController
     	redirect_to "users/#{current_user.id}"
   	end
 
+  	# def 
+
 	# def sign_up_params 
 	# 	devise_parameter_sanitizer.sanitize(:sign_up)
 	# end 

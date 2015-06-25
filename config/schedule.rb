@@ -23,9 +23,10 @@
 	set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
 
-every :day, :at => '12:01 am' do
+	every 1.day, :at => '12:01 am' do# every 2.minutes do#1.day, :at => '12:46 pm' do
 
-	 runner "UpdateWorker.perform", :environment => "development"
+	runner "UpdateWorker.perform", :environment => "development"
+	 # runner "TheMailers.daily_reminder_email", :environment => "development"
 
 
 end
