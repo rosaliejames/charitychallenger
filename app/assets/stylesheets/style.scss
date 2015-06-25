@@ -16,6 +16,15 @@
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+.form {
+  text-align: center;
+}
+
+  .avatar{
+    border-radius: 50px;
+  }
+
   @import "libs/skel";
 
   @include skel-breakpoints((
@@ -765,6 +774,7 @@
 
     &.style1 {
       background: #fff;
+      padding-top: 0px;
     }
 
     &.style2 {
@@ -773,6 +783,13 @@
       background-position:  top left,           bottom left,          top left;
       background-size:    100% 6em,           100% 6em,           auto;
       background-repeat:    no-repeat,            no-repeat,            repeat;
+      padding-top: 20px;
+      img { 
+        border-radius: 15px;
+        border-width: 10px;
+        box-shadow: 0 0 0 7px white, 0 0 0 8px _palette(border);
+
+      }
     }
 
     &.style3 {
@@ -1006,6 +1023,7 @@
           text-align: left;
           position: relative;
           padding-left: 7em;
+
 
           i {
             position: absolute;
@@ -1365,3 +1383,37 @@
       }
 
   }
+
+.profpic {
+  border-style: solid;
+  border-width: 10px; 
+  border-radius: 10px;
+}
+
+.box.highlight{
+  border-radius: 15px;
+  background: rgba(55, 192, 251, .3);
+ 
+  box-shadow: 0 0 0 7px white, 0 0 0 8px _palette(border);
+  
+  min-height: 400px;
+  padding-left: 10px;
+  pdding-right: 10px;
+}
+
+h7 {
+    color: inherit;
+    font-weight: 600;
+    font-size: 60px;
+    padding: 50px;
+    margin-top: 50px;
+  
+}
+
+h8 {
+    color: #37c0fb;
+    font-weight: 600;
+    font-size: 45px;
+    padding: 50px;
+    margin-top: 50px;
+}

@@ -1,9 +1,13 @@
-<div class="confirm">
-<div class='page'>
-<div class="container">
-<h4>Confirm Your Challenge</h4>
 <div class='form'>
-<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+<div class="confirm">
+<div class="container">
+<br /><br />
+<h7>Confirm Your Challenge!</h7><br /><br />
+
+
+<p><%= image_tag User.find(@challenge[:challenger_id]).avatar.url(:medium), :class => 'avatar'%><h8> vs </h8><%= image_tag User.find(@challenge[:challengee_id]).avatar.url(:medium), :class => 'avatar'%><br />
+<%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+
 <br />
 Challenge: <%=@challenge[:challenge_description]%><br />
 <br />
@@ -37,15 +41,5 @@ My Charity: <% if current_user.id == @challenge[:challenger_id] %>
   <% end %>
 </p>
 
-
 </div>
 </div>
-</div>
-
-
-</div>
-</div>
-
-
-
-

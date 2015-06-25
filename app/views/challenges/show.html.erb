@@ -2,11 +2,14 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
+<div class="form">
 <body>
 <div class="container">
-<h3>View My Challenge</h3>
+<br /><br />
+<h7>View My Challenge</h7><br /><br />
 
-<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+<p><%= image_tag User.find(@challenge[:challenger_id]).avatar.url(:medium), :class => 'avatar'%> <h8>vs</h8> <%= image_tag User.find(@challenge[:challengee_id]).avatar.url(:medium), :class => 'avatar'%><br />
+<%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
 <br />
 Challenge: <%=@challenge[:challenge_description]%><br />
 <br />
@@ -25,7 +28,7 @@ My Charity: <% if current_user.id == @challenge[:challenger_id] %>
  <%end%>
 </p>
 
-<div id="container" style="width:80%; height:400px;"></div>
+<div id="container" style="width:80%; height:400px; margin: 0px auto;"></div>
 
 <script> 
 $(function() {
@@ -34,14 +37,17 @@ $(function() {
             backgroundColor: {
                 linearGradient: [0, 0, 500, 500],
                 stops: [
-                    [0, 'rgb(255, 255, 255)'],
-                    [1, 'rgb(240, 240, 255)']
+                    [0, 'rgba(55, 192, 251, .1)'],
+                    [1, 'rgba(55, 192, 251, .5)']
                     ]
             },
             borderWidth: 2,
+            borderRadius: '10px',
+            borderColor: '#2b2b2b',
             plotBackgroundColor: 'rgba(255, 255, 255, .9)',
             plotShadow: true,
             plotBorderWidth: 1
+           
         }
     });
     
@@ -53,6 +59,9 @@ $(function() {
 		title: {
             text: '<%=@challenge[:challenge_description]%>'
         },
+        colors: [
+                'rgba(45,45,45,.5)'
+            ],
         xAxis: {
             categories: ['<%=User.find(@challenge[:challenger_id])[:username]%>', '<%=User.find(@challenge[:challengee_id])[:username]%>', 'total']
         },
@@ -72,3 +81,4 @@ $(function() {
 
 </div>
 </body>
+</div>

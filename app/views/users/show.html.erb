@@ -1,10 +1,21 @@
 
+			<!-- Gigantic Heading -->
+				<section class="wrapper style2">
+					<div class="container">
+						<header class="major">
+							<h2>Welcome <%=@user[:first_name]%> <%=@user[:last_name]%></h2>
+							<p><%=@user[:username]%></p>
+							<%= image_tag @user.avatar.url(:medium), :class => 'avatar'%>
+						</header>
+					</div>
+				</section>
+
 <section class="wrapper style1">
 					<div class="container">
 						<div class="row 200%">
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
-									<i class="icon major fa-paper-plane"></i>
+									
 									<h3>Pending Challenges</h3>
 									<p>
 									<% if @pending_challenges.empty? %>You have no pending challenges <br/><%end%>
@@ -26,7 +37,7 @@
 							</section>
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
-									<i class="icon major fa-pencil"></i>
+									
 									<h3>Active Challenges</h3>
 									<p><% if @active_challenges.empty? %>You have no active challenges<br /> <%end%>
 										<ol>
@@ -39,7 +50,7 @@
 											<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
 											<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
 											<% else %> 
-											You completed your challenge today - good work! 
+											Daily challenge completed - <br />good work! 
 											<% end %>
 										</li>
 									<%end%>
@@ -48,7 +59,7 @@
 							</section>
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
-									<i class="icon major fa-wrench"></i>
+									
 									<h3>Completed Challenges</h3>
 									<p><% if @completed_challenges.empty? %>You have no completed challenges <br /><%end%>
 										<ol>

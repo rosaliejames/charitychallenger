@@ -1,9 +1,13 @@
-<div class='page'>
+<div class='form'>
 <div class = "form-challenge">
 <div class="container">
-<h4>Accept your Challenge:</h4>
-<div class='form'>
-<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+<br /><br />
+<h7>Accept your Challenge:</h7><br /><br />
+
+
+
+<p><%= image_tag User.find(@challenge[:challenger_id]).avatar.url(:medium), :class => 'avatar'%><h8> vs </h8>h8> <%= image_tag User.find(@challenge[:challengee_id]).avatar.url(:medium), :class => 'avatar'%><br />
+<%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
 <br />
 Challenge: <%=@challenge[:challenge_description]%><br />
 <br />
@@ -20,7 +24,6 @@ Challenge: <%=@challenge[:challenge_description]%><br />
   <br/>
   <%= f.submit %>
   <%end%>
- </div>
  </div>
  </div>
  </div>

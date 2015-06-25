@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 				@active_challenges << challenge
 			end 
 		end 
+
 	end 
 
 	def new
