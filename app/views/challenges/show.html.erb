@@ -1,5 +1,74 @@
+<head> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
 <div class="container">
-Show 
+<h3>View My Challenge</h3>
 
-<%= @challenges %>
+<p><%=User.find(@challenge[:challenger_id]).username %> vs <%= User.find(@challenge[:challengee_id]).username %><br />
+<br />
+Challenge: <%=@challenge[:challenge_description]%><br />
+<br />
+My Charity: <% if current_user.id == @challenge[:challenger_id] %>
+ <%= Charity.find(@challenge[:challenger_charity_id]).name %><br />
+ <br />
+  <% if @challenge[:challenger_charity_id].nil? %>
+  <%= User.find(@challenge[:challengee_id])[:username]%> has not yet picked a challenge
+  <%else%> 
+  <%= User.find(@challenge[:challengee_id])[:username] %>'s Charity: <%= Charity.find(@challenge[:challenger_charity_id]).name %> 
+  <%end%>
+ <% else %> 
+ <%= Charity.find(@challenge[:challengee_charity_id]).name %> <br />
+ <br />
+ <%= User.find(@challenge[:challenger_id])[:username] %>'s challenge: <%= Charity.find(@challenge[:challenger_charity_id]).name %>
+ <%end%>
+</p>
+
+<div id="container" style="width:80%; height:400px;"></div>
+
+<script> 
+$(function() {
+    Highcharts.setOptions({
+        chart: {
+            backgroundColor: {
+                linearGradient: [0, 0, 500, 500],
+                stops: [
+                    [0, 'rgb(255, 255, 255)'],
+                    [1, 'rgb(240, 240, 255)']
+                    ]
+            },
+            borderWidth: 2,
+            plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+            plotShadow: true,
+            plotBorderWidth: 1
+        }
+    });
+    
+    var chart1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column'
+        },
+		title: {
+            text: '<%=@challenge[:challenge_description]%>'
+        },
+        xAxis: {
+            categories: ['<%=User.find(@challenge[:challenger_id])[:username]%>', '<%=User.find(@challenge[:challengee_id])[:username]%>', 'total']
+        },
+        yAxis: {
+            title: {
+                text: 'Money Raised'
+            }
+        },
+        series: [{
+            name: 'My Challenge',
+            data: [<%=@challenge[:challenger_funds]%>, <%=@challenge[:challengee_funds]%>, <%=@challenge[:challenger_funds] + @challenge[:challengee_funds]%>]
+        }],
+    });
+});
+</script>
+
+
 </div>
+</body>
