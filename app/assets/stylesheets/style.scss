@@ -4,6 +4,15 @@
 
 @import url('http://fast.fonts.com/cssapi/95b765fd-fae4-4f1b-8155-d8244914a5c6.css');
 
+.page {
+  background: -moz-linear-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -webkit-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.25));
+  background: -webkit-linear-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -o-linear-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -ms-linear-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: linear-gradient(bottom, rgba(91,186,255,1), rgba(91,186,255,.2));
+}
+
 .alert {
 background: rgba(91,186,255,.175);
   
@@ -122,9 +131,10 @@ h6 {
   font-weight: 500;
   line-height: 1.25em;
   margin: 0.5em 0;
-  color: #5BBAFF
+  color: #6D003B;
+  text-align: center;
 }
-.form-challenge {
+.form {
 	text-align: center;
 	padding: 20 px;
 }
@@ -422,12 +432,12 @@ header h2 {
   color: #01017A
 }
 .supporting {
-  background: -moz-linear-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
-  background: -webkit-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
-  background: -webkit-linear-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
-  background: -o-linear-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
-  background: -ms-linear-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
-  background: linear-gradient(top, rgba(91,186,255,.9), rgba(91,186,255,.25));
+  background: -moz-linear-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -webkit-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -webkit-linear-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -o-linear-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: -ms-linear-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
+  background: linear-gradient(top, rgba(91,186,255,1), rgba(91,186,255,.2));
   border-top: 5px solid #6D003B;
   border-bottom: 5px solid #6D003B;
   float: left;
