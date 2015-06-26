@@ -14,7 +14,7 @@
 									<li><a href="<%="/users/#{current_user.id}"%>">My Profile</a></li>
 									<li><a href="<%=edit_user_registration_path%>">Edit Account</a></li>
 									<li><a href="/challenges/new">Create A New Challenge</a></li>
-									<li>Signed in as <%=current_user[:username]%></li>
+									<li><a href ="#">Signed in as <%=current_user[:username]%></a></li>
 									<li><%=link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %></li>
 								<% else %>
 									<li><%=link_to 'Sign Up', new_user_registration_path%></li>
@@ -69,8 +69,8 @@
 										<ol>
 										<% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 										<li>
-										<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) <br />vs<br /> <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challengee_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
-											<%= button_to "View this Challenge", "/challenges/#{challenge.id}", :method => 'get' %><br />
+										<a href ="<%="/challenges/#{challenge.id}"%>"><%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) vs <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challengee_funds, :precision =>2)%>)</a><br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
+								
 											<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
 											<%= button_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
 											<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
@@ -78,7 +78,7 @@
 											<% else %> 
 											Daily challenge completed - <br />good work! 
 											<% end %>
-										</li>
+										</li><br />
 									<%end%>
 									</ol></p>
 								</div>
