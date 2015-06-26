@@ -10,8 +10,8 @@
 					</div>
 				</section>
 
-<section class="wrapper style1">
-					<div class="container">
+<section class="wrapper style">
+					<div class="profilecontainer">
 						<div class="row 200%">
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
@@ -25,7 +25,7 @@
 									<%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 									Challenge: <%=challenge[:challenge_description]%><br />
 										<% if challenge[:challengee_id] == current_user.id %>
-										<%= link_to "Accept this Challenge", "/challenges/#{challenge.id}/edit" %><br /> <%= link_to "Decline this challenge", destroy_path(challenge), :method => "delete" %>
+										<%= button_to "Accept this Challenge", "/challenges/#{challenge.id}/edit" %><br /> <%= button_to "Decline this challenge", destroy_path(challenge), :method => "delete" %>
 										<% else %>
 										Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 										<%end%>
@@ -43,12 +43,12 @@
 										<ol>
 										<% @active_challenges.each do |challenge| #to do - accomodate for empty, display You have no challenges %>
 										<li>
-										<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) <br />vs<br /> <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
-											<%= link_to "View this Challenge", "/challenges/#{challenge.id}" %><br />
+										<%= User.find(challenge.challenger_id).username %> ($<%=number_with_precision(challenge.challenger_funds, :precision => 2)%>) <br />vs<br /> <%= User.find(challenge.challengee_id).username %> ($<%=number_with_precision(challenge.challengee_funds, :precision =>2)%>)<br /> Challenge: <%=challenge[:challenge_description]%> <br />Today is day <%=challenge[:current_day]%> of <%=challenge[:total_days]%><br />
+											<%= button_to "View this Challenge", "/challenges/#{challenge.id}", :method => 'get' %><br />
 											<% if current_user.id == challenge[:challenger_id] && !challenge[:challenger_task] %>
-											<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+											<%= button_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
 											<% elsif current_user.id == challenge[:challengee_id] && !challenge[:challengee_task] %>
-											<%= link_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
+											<%= button_to "I completed my challenge today!", complete_path(challenge), :method => "put" %>
 											<% else %> 
 											Daily challenge completed - <br />good work! 
 											<% end %>

@@ -806,6 +806,8 @@
         }
       }
     }
+
+
   }
 
 /* CTA */
@@ -1390,16 +1392,6 @@
   border-radius: 10px;
 }
 
-.box.highlight{
-  border-radius: 15px;
-  background: rgba(55, 192, 251, .3);
- 
-  box-shadow: 0 0 0 7px white, 0 0 0 8px _palette(border);
-  
-  min-height: 400px;
-  padding-left: 10px;
-  pdding-right: 10px;
-}
 
 h7 {
     color: inherit;

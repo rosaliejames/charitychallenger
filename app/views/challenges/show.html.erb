@@ -60,7 +60,7 @@ $(function() {
             text: '<%=@challenge[:challenge_description]%>'
         },
         colors: [
-                'rgba(45,45,45,.5)'
+                '#37c0fb'
             ],
         xAxis: {
             categories: ['<%=User.find(@challenge[:challenger_id])[:username]%>', '<%=User.find(@challenge[:challengee_id])[:username]%>', 'total']
