@@ -51,7 +51,7 @@
 									<%= User.find(challenge.challenger_id).username %> vs <%= User.find(challenge.challengee_id).username %><br />
 									Challenge: <%=challenge[:challenge_description]%><br />
 										<% if challenge[:challengee_id] == current_user.id %>
-										<%= button_to "Accept this Challenge", "/challenges/#{challenge.id}/edit" %><br /> <%= button_to "Decline this challenge", destroy_path(challenge), :method => "delete" %>
+										<%= button_to "Accept this Challenge", challenge_edit_path(challenge), :method => 'get'%><br /> <%= button_to "Decline this challenge", destroy_path(challenge), :method => "delete" %>
 										<% else %>
 										Waiting for <%= User.find(challenge[:challengee_id]).username %> to accept
 										<%end%>
