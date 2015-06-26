@@ -5,7 +5,23 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-		<%= render partial: "carousel" %>
+		<nav id="nav">
+							<ul>
+								<% if user_signed_in? %>
+									
+									<li class="current"><a href=<%=root_path%>>Home</a></li>
+									<li><a href="<%="/users/#{current_user.id}"%>">My Profile</a></li>
+									<li><a href="<%=edit_user_registration_path%>">Edit Account</a></li>
+									<li><a href="/challenges/new">Create A New Challenge</a></li>
+									<li>Signed in as <%=current_user[:username]%></li>
+									<li><%=link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %></li>
+								<% else %>
+									<li><%=link_to 'Sign Up', new_user_registration_path%></li>
+        							<li><a>Already Have An Account?</a></li>
+        							<li><%=link_to 'Sign In', new_user_session_path %></li>
+								<% end %>
+							</ul>
+						</nav>
 			
 			
 			<!-- Banner -->
@@ -16,7 +32,7 @@
 				<section class="wrapper style2">
 					<div class="container">
 						<header class="major">
-							<h2>Welcome to CharityChallenger</h2>
+							<h2>Welcome to Charity Challenger</h2>
 							<p>Make a better world by making a better you</p>
 							<a href="/challenges/new" class="button">Create Challenge</a>
 						</header>
@@ -32,7 +48,7 @@
 									<a href="#" class="image left"><img src="assets/sign_up.jpg" alt="" /></a>
 									<div class="inner">
 										<h3>Sign Up</h3>
-										<p>Signing up with CharityChallenger is quick and easy. Just enter your email, pick a password, and you're ready to start achieving your goals!</p>
+										<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
 									</div>
 								</div>
 							</section>
@@ -41,7 +57,7 @@
 									<a href="#" class="image left"><img src="assets/challenge_friends.jpg" alt="" /></a>
 									<div class="inner">
 										<h3>Challenge Your Friends</h3>
-										<p>After you've signed up, you can challenge another user. Select a user from our drop down menu and enter a challenge and charity of your choice. </p>
+										<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
 									</div>
 								</div>
 							</section>
@@ -52,7 +68,7 @@
 									<a href="#" class="image left"><img src="assets/help_others.jpg" alt="" /></a>
 									<div class="inner">
 										<h3>Help Others</h3>
-										<p>When you create a challenge, you donate a dollar for each day of the challenge. Every day that you complete your challenge, the dollar goes to your charity; when you don't, it goes to your challenger's charity. </p>
+										<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
 									</div>
 								</div>
 							</section>
@@ -61,7 +77,7 @@
 									<a href="#" class="image left"><img src="assets/complete_goals.jpg" alt="" /></a>
 									<div class="inner">
 										<h3>Accomplish Your Goals</h3>
-										<p>By providing two forms of external motivation to hold you accountable - helping others and friendly competition - CharityChallenger helps you achieve your goals!</p>
+										<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
 									</div>
 								</div>
 							</section>
@@ -74,7 +90,7 @@
 					<div class="container">
 						<header>
 							<h2>Ready to achieve your goals?</h2>
-							<a href="<%=new_user_registration_path%>" class="button">Sign Up</a>
+							<a href="#" class="button">Sign Up</a>
 						</header>
 					</div>
 				</section>
@@ -84,18 +100,18 @@
 					<div class="container">
 						<div class="row">
 							<section class="3u 6u(narrower) 12u$(mobilep)">
-								<h3>Causes We Support</h3>
+								<h3>Links to Stuff</h3>
 								<ul class="links">
-									<li><a href="http://www.bbbs.org/">Big Brothers Big Sisters</a></li>
-									<li><a href="http://wish.org/">Make a Wish</a></li>
-									<li><a href="http://www.habitat.org/">Habitat for Humanity</a></li>
-									<li><a href="http://www.unicef.org/">Unicef</a></li>
-									<!-- <li><a href="#">Mattis rutrum accumsan</a></li>
+									<li><a href="#">Mattis et quis rutrum</a></li>
+									<li><a href="#">Suspendisse amet varius</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan dolor</a></li>
+									<li><a href="#">Mattis rutrum accumsan</a></li>
 									<li><a href="#">Suspendisse varius nibh</a></li>
-									<li><a href="#">Sed et dapibus mattis</a></li> -->
+									<li><a href="#">Sed et dapibus mattis</a></li>
 								</ul>
 							</section>
-							<!-- <section class="3u 6u$(narrower) 12u$(mobilep)">
+							<section class="3u 6u$(narrower) 12u$(mobilep)">
 								<h3>More Links to Stuff</h3>
 								<ul class="links">
 									<li><a href="#">Duis neque nisi dapibus</a></li>
@@ -106,9 +122,9 @@
 									<li><a href="#">Sed et dapibus quis</a></li>
 									<li><a href="#">Rutrum amet varius</a></li>
 								</ul>
-							</section> -->
+							</section>
 							<section class="6u 12u(narrower)">
-								<h3>Drop Us A Line!</h3>
+								<h3>Get In Touch</h3>
 								<form>
 									<div class="row 50%">
 										<div class="6u 12u(mobilep)">
@@ -147,7 +163,7 @@
 					<!-- Copyright -->
 						<div class="copyright">
 							<ul class="menu">
-								<li>&copy; CharityChallenger. All rights reserved</li><li>Design: <a href="http://html5up.net">SOMETHING</a></li>
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">SOMETHING</a></li>
 							</ul>
 						</div>
 
